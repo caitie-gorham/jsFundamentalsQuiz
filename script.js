@@ -4,25 +4,40 @@
     var timeLeft = 59
     var timer = setInterval(function(){
         document.getElementById("counter").innerHTML = timeLeft + " seconds remaining";
-
-        timeLeft -= 1;
+        timeLeft = timeLeft - 1;
         if(timeLeft <=0) {
             clearInterval(timer);
             document.getElementById("counter").innerHTML = "Game over"
         }
     },1000);
+startBtn.addEventListener("click", function(){
+    var questionOptions = [{
+        question: "Question text here",
+        answers: ["answer1","answer2","answer3","answer4"],
+        correctAnswer: 0,
+    }, {
+        question: "Question text here",
+        answers: ["answer1","answer2","answer3","answer4"],
+        correctAnswer: 1,
+    }, {
+        question: "Question text here",
+        answers: ["answer1","answer2","answer3","answer4"],
+        correctAnswer: 2,
+    }];
     
-    // generate the first question
- });
+})
+    
+    // everything in this section needs to go in a while loop that means it will all run while the timer still has time left 
+    // fill in the content of each question 
+    // first question will kick off by start button
+    // each subsequent question is kicked off by answering the previous question
+    // fill in question content in the id "questionText"
+    // fill in the answers in the id "answer#" and indicate which is correct 
+    // create an object with the question text, answer choices, and correct answer choice
 
- var questionGenerator = document.querySelector("#questionDiv");
- questionGenerator.addEventListener("click", function(){
-    var counter = document.querySelector("#counter");
-    //  for each question, when user clicks on an answer, figures out if the answer is correct
-    // if answer is correct, show message and add count to quiz score
-    // if answer is incorrect, show message and deduct count from quiz score
-    // show new quiz question
-    // repeat
+
+
+
  });
 
 
