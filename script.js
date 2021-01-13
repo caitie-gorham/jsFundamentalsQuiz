@@ -1,4 +1,4 @@
-//  var startBtn = document.querySelector("#startbtn");
+ var startBtn = document.querySelector("#startbtn");
  
 //  startBtn.addEventListener("click", function(){
 //     //  start the timer
@@ -13,13 +13,11 @@
 //     },1000);
 //  );
 
+function entireQuiz(){
 function quizDisplay(){
-
     var out = [];
-
     questionChoice.forEach(function(currentQuestion, questionNum){
         var answers = [];
-
         for(letter in currentQuestion.answers){
           answers.push(
             `<label>
@@ -29,7 +27,6 @@ function quizDisplay(){
             </label>`
           );
         }
-
         out.push(
             `<div class="slide">
             <div class="question"> ${currentQuestion.question} </div>
@@ -40,7 +37,6 @@ function quizDisplay(){
     );
     quizContainer.innerHTML = out.join('');
   }
-
 
   function showResults(){
     var answerContainers = quizContainer.querySelectorAll('.answers');
@@ -139,3 +135,6 @@ showSlide(currentSlide);
 submitButton.addEventListener('click', showResults);
 prevButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
+}
+
+startBtn.addEventListener("click", entireQuiz)
