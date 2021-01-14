@@ -1,18 +1,3 @@
- var startBtn = document.querySelector("#startbtn");
- 
-//  startBtn.addEventListener("click", function(){
-//     //  start the timer
-//     var timeLeft = 59;
-//     var timer = setInterval(function(){
-//         document.getElementById("counter").innerHTML = timeLeft + " seconds remaining";
-//         timeLeft =- 1;
-//         if(timeLeft <=0) {
-//             clearInterval(timer);
-//             document.getElementById("counter").innerHTML = "Game over"
-//         }
-//     },1000);
-//  );
-
 function entireQuiz(){
 function quizDisplay(){
     var out = [];
@@ -55,7 +40,7 @@ function quizDisplay(){
       }
     });
 
-    resultsContainer.innerHTML = `${numCorrect} out of ${questionChoice.length}`;
+    resultsContainer.innerHTML = `You answered ${numCorrect} out of ${questionChoice.length} questions correctly`;
   }
 
 function showSlide(n) {
@@ -89,7 +74,7 @@ function showPreviousSlide() {
 }
 
 var quizContainer = document.getElementById('quiz');
-var resultsContainer = document.getElementById('results');
+var resultsContainer = document.getElementById('counter');
 var submitButton = document.getElementById('submit');
 
 var questionChoice = [
@@ -112,7 +97,7 @@ var questionChoice = [
       correctAnswer: "c"
     },
     {
-      question: "Which tool can you use to ensure code quality?",
+      question: "Question Three Text",
       answers: {
         a: "answerone",
         b: "answertwo",
@@ -137,4 +122,23 @@ prevButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
 }
 
+var startBtn = document.querySelector("#startbtn");
+ 
 startBtn.addEventListener("click", entireQuiz)
+
+startBtn.addEventListener("click", function(){
+   //  start the timer
+   var timeLeft = 100;
+   var timer = setInterval(function(){
+       document.getElementById("timer").innerHTML = timeLeft + " seconds remaining";
+       timeLeft -= 1;
+       console.log(timeLeft)
+       if(timeLeft <=0) {
+           clearInterval(timer);
+           document.getElementById("timer").innerHTML = "Game over"
+       }
+   },1000)}
+);
+
+
+
