@@ -15,8 +15,12 @@ startBtn.addEventListener("click", function(){
   },1000)}
 );
 
+startBtn.addEventListener("click", function(){
+  document.getElementById("quizContainer").style.display = "block"
+})
+
 function entireQuiz(){
-function quizDisplay(){
+  function quizDisplay(){
     var out = [];
     questionChoice.forEach(function(currentQuestion, questionNum){
         var answers = [];
@@ -143,8 +147,15 @@ nextButton.addEventListener("click", showNextcard);
 }
 
 
+
  
 startBtn.addEventListener("click", entireQuiz)
+
+var submitButton = document.getElementById('submit');
+submitButton.addEventListener("click", function(){
+  document.getElementById("form").style.display = "block"
+  document.getElementById("quizContainer").style.display = "none"
+})
 
 
 
