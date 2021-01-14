@@ -2,6 +2,10 @@ h1 {
    text-align: center;
 }
 
+#timer {
+  text-align: right;
+}
+
 .wrapper {
    height: 100%;
    margin: 0;
@@ -26,7 +30,7 @@ h1 {
    color: hsl(206, 17%, 28%);
  }
 
-.card {
+.card1 {
    background-color: hsl(0, 0%, 100%);
    border-radius: 5px;
    border-width: 1px;
@@ -38,11 +42,11 @@ h1 {
    padding: 30px 40px;
 }
 
-.card-body {
+.card1-body {
    min-height: 100px;
  }
 
-.slide{
+.card{
    position: absolute;
    left: 0px;
    top: 0px;
@@ -52,9 +56,10 @@ h1 {
    transition: opacity 0.5s;
  }
  
- .active-slide{
+ .active-card{
    opacity: 1;
    z-index: 2;
+   text-align: center;
  }
  
  .quizContainer{
@@ -75,6 +80,12 @@ h1 {
    text-align: left;
    display: inline-block;
  }
+
  .answers label{
    display: block;
    margin-bottom: 10px;
+ }
+
+ #counter {
+   text-align: center;
+ }
