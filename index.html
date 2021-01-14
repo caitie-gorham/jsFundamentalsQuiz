@@ -19,15 +19,31 @@
                 <div class="center">
                     <button type="button" id="startbtn" class="btn btn-secondary">Start the Quiz</button>
                 </div>
-                <div class="quizContainer">
-                    <div id="quiz"></div>
+                <div id="quizContainer">
+                    <div id="quiz"></div> 
                 </div>
+                
                 <button id="prev" class="btn btn-info">Previous</button>
                 <button id="next" class="btn btn-info">Next</button>
                 <button id="submit" class="btn btn-success">Submit Quiz</button>
                 
                 <div id="counter"></div>
                 <div id="score"></div>
+
+                <form id="form">
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Score: </label>
+                      <div class="col-sm-10">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Name: </label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                      </div>
+                    </div>
+                    <button type="button" id = "form" class="btn btn-warning">Log Your High Score</button>
+                </form>
 
             </div>
         </div>
