@@ -1,3 +1,47 @@
+h1 {
+   text-align: center;
+}
+
+.wrapper {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ body {
+   font-family: sans-serif;
+   background-color: #f9fbfd;
+ }
+
+ .wrapper {
+   padding-top: 30px;
+   padding-left: 20px;
+   padding-right: 20px;
+ }
+ 
+ header {
+   text-align: center;
+   padding: 20px;
+   padding-top: 0px;
+   color: hsl(206, 17%, 28%);
+ }
+
+.card {
+   background-color: hsl(0, 0%, 100%);
+   border-radius: 5px;
+   border-width: 1px;
+   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+   color: hsl(206, 17%, 28%);
+   font-size: 18px;
+   margin: 0 auto;
+   max-width: 800px;
+   padding: 30px 40px;
+}
+
+.card-body {
+   min-height: 100px;
+ }
+
 .slide{
    position: absolute;
    left: 0px;
@@ -7,12 +51,30 @@
    opacity: 0;
    transition: opacity 0.5s;
  }
+ 
  .active-slide{
    opacity: 1;
    z-index: 2;
  }
+ 
  .quizContainer{
    position: relative;
    height: 200px;
    margin-top: 40px;
  }
+
+ .center {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+ }
+
+ .answers {
+   margin-bottom: 20px;
+   text-align: left;
+   display: inline-block;
+ }
+ .answers label{
+   display: block;
+   margin-bottom: 10px;
