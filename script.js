@@ -1,3 +1,20 @@
+var startBtn = document.querySelector("#startbtn");
+
+startBtn.addEventListener("click", function(){
+  //  start the timer
+  var timeLeft = 100;
+  var timer = setInterval(function(){
+      document.getElementById("timer").innerHTML = timeLeft + " seconds remaining";
+      timeLeft -= 1;
+      console.log(timeLeft)
+      if(timeLeft <=0) {
+          clearInterval(timer);
+          document.getElementById("timer").innerHTML = "Game over"
+          showResults()
+      }
+  },1000)}
+);
+
 function entireQuiz(){
 function quizDisplay(){
     var out = [];
@@ -13,7 +30,7 @@ function quizDisplay(){
           );
         }
         out.push(
-            `<div class="slide">
+            `<div class="card">
             <div class="question"> ${currentQuestion.question} </div>
             <div class="answers"> ${answers.join("")} </div>
           </div>`
@@ -36,26 +53,29 @@ function quizDisplay(){
         numCorrect++;
       }
       else{
-        // add a function that decreases the amount of time available - STILL NEED TO DO
+        // Need script here to deduct time from timer
       }
     });
+
+    var score = (numCorrect/questionChoice.length)*100;
+    console.log(score);
 
     resultsContainer.innerHTML = `You answered ${numCorrect} out of ${questionChoice.length} questions correctly`;
   }
 
-function showSlide(n) {
-    slides[currentSlide].classList.remove('active-slide');
-    slides[n].classList.add('active-slide');
-    currentSlide = n;
+function showcard(n) {
+    cards[currentcard].classList.remove('active-card');
+    cards[n].classList.add('active-card');
+    currentcard = n;
     
-    if(currentSlide === 0){
+    if(currentcard === 0){
       prevButton.style.display = 'none';
     }
     else{
       prevButton.style.display = 'inline-block';
     }
     
-    if(currentSlide === slides.length-1){
+    if(currentcard === cards.length-1){
       nextButton.style.display = 'none';
       submitButton.style.display = 'inline-block';
     }
@@ -65,17 +85,18 @@ function showSlide(n) {
     }
   }
 
-function showNextSlide() {
-    showSlide(currentSlide + 1);
+function showNextcard() {
+    showcard(currentcard + 1);
 }
   
-function showPreviousSlide() {
-    showSlide(currentSlide - 1);
+function showPreviouscard() {
+    showcard(currentcard - 1);
 }
 
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('counter');
 var submitButton = document.getElementById('submit');
+var scoreContainer = document.getElementById('score');
 
 var questionChoice = [
     {
@@ -107,38 +128,23 @@ var questionChoice = [
     }
   ];
 
-
 quizDisplay();
 
 var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
-var slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+var cards = document.querySelectorAll(".card");
+let currentcard = 0;
 
-showSlide(currentSlide);
+showcard(currentcard);
 
 submitButton.addEventListener('click', showResults);
-prevButton.addEventListener("click", showPreviousSlide);
-nextButton.addEventListener("click", showNextSlide);
+prevButton.addEventListener("click", showPreviouscard);
+nextButton.addEventListener("click", showNextcard);
 }
 
-var startBtn = document.querySelector("#startbtn");
+
  
 startBtn.addEventListener("click", entireQuiz)
-
-startBtn.addEventListener("click", function(){
-   //  start the timer
-   var timeLeft = 100;
-   var timer = setInterval(function(){
-       document.getElementById("timer").innerHTML = timeLeft + " seconds remaining";
-       timeLeft -= 1;
-       console.log(timeLeft)
-       if(timeLeft <=0) {
-           clearInterval(timer);
-           document.getElementById("timer").innerHTML = "Game over"
-       }
-   },1000)}
-);
 
 
 
