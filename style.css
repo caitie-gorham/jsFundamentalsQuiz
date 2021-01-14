@@ -1,3 +1,9 @@
+#form {
+  display: none;
+  padding: 10px;
+  text-align: center;
+}
+
 h1 {
    text-align: center;
 }
@@ -40,6 +46,7 @@ h1 {
    margin: 0 auto;
    max-width: 800px;
    padding: 30px 40px;
+   text-align: center;
 }
 
 .card1-body {
@@ -62,8 +69,9 @@ h1 {
    text-align: center;
  }
  
- .quizContainer{
-   position: relative;
+ #quizContainer{
+  display: none; 
+  position: relative;
    height: 200px;
    margin-top: 40px;
  }
@@ -89,3 +97,5 @@ h1 {
  #counter {
    text-align: center;
  }
+
+ 
