@@ -10,10 +10,12 @@
 </head>
 <body>
     <div class="wrapper">
+        
         <header>
             <h1>Javascript Fundamentals Quiz</h1>
             <div id="timer"></div>
         </header>
+       
         <div class="card1">
             <div class="card1-body">
                 <div class="center">
@@ -21,30 +23,33 @@
                 </div>
                 <div id="quizContainer">
                     <div id="quiz"></div> 
+                    
                 </div>
                 
-                <button id="prev" class="btn btn-info">Previous</button>
-                <button id="next" class="btn btn-info">Next</button>
-                <button id="submit" class="btn btn-success">Submit Quiz</button>
-                
+                <div class="card1-body" id="buttonsNav">
+                    <button id="prev" class="btn btn-info">Previous</button>
+                    <button id="next" class="btn btn-info">Next</button>
+                    <button id="submit" class="btn btn-success">Submit Quiz</button>
+                </div>
+        
                 <div id="counter"></div>
-                <div id="score"></div>
 
                 <form id="form">
                     <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Score: </label>
-                      <div class="col-sm-10">
+                      <div class="col-sm-10" id="score">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="inputPassword" class="col-sm-2 col-form-label">Name: </label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Name">
                       </div>
                     </div>
-                    <button type="button" id = "form" class="btn btn-warning">Log Your High Score</button>
                 </form>
-
+            
+                <button type="button" id="log" class="btn btn-warning">Log Your High Score</button>
+            
             </div>
         </div>
     </div>

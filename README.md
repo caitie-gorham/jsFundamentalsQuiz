@@ -24,4 +24,5 @@ This application is a timed JavaScript quiz. This application is not complete. I
 This application does not currently meet the requirements of the assignment. With further work, I will add:
 * A way for the quiz to end when the time is up
 * A way to hide the buttons when the page first loads except for the "Start Quiz" button
+* Have high scores stored in local storage
 

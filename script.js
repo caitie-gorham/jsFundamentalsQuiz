@@ -1,22 +1,23 @@
 var startBtn = document.querySelector("#startbtn");
 
+var timeLeft = 100;
+var timer;
+
 startBtn.addEventListener("click", function(){
   //  start the timer
-  var timeLeft = 100;
-  var timer = setInterval(function(){
+  timer = setInterval(function(){
       document.getElementById("timer").innerHTML = timeLeft + " seconds remaining";
       timeLeft -= 1;
       console.log(timeLeft)
       if(timeLeft <=0) {
           clearInterval(timer);
           document.getElementById("timer").innerHTML = "Game over"
-          showResults()
       }
   },1000)}
 );
 
 startBtn.addEventListener("click", function(){
-  document.getElementById("quizContainer").style.display = "block"
+  document.getElementById("quizContainer").style.display = "block";
 })
 
 function entireQuiz(){
@@ -48,7 +49,7 @@ function entireQuiz(){
     var answerContainers = quizContainer.querySelectorAll('.answers');
     let numCorrect = 0;
 
-    questionChoice.forEach( function(currentQuestion, questionNum) {
+    questionChoice.forEach(function(currentQuestion, questionNum) {
       var answerContainer = answerContainers[questionNum];
       var selector = `input[name=question${questionNum}]:checked`;
       var userAnswer = (answerContainer.querySelector(selector) || {}).value;
@@ -56,15 +57,18 @@ function entireQuiz(){
       if(userAnswer === currentQuestion.correctAnswer){
         numCorrect++;
       }
-      else{
-        // Need script here to deduct time from timer
+      else {
+        timeLeft -= 5;
+        document.getElementById("timer").innerHTML = timeLeft + " seconds remaining";
       }
     });
 
     var score = (numCorrect/questionChoice.length)*100;
     console.log(score);
 
+    clearInterval(timer);
     resultsContainer.innerHTML = `You answered ${numCorrect} out of ${questionChoice.length} questions correctly`;
+    
   }
 
 function showcard(n) {
@@ -100,7 +104,7 @@ function showPreviouscard() {
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('counter');
 var submitButton = document.getElementById('submit');
-var scoreContainer = document.getElementById('score');
+
 
 var questionChoice = [
     {
@@ -110,7 +114,7 @@ var questionChoice = [
         b: "answertwo",
         c: "answerthree"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
       question: "Question Two Text",
@@ -119,7 +123,7 @@ var questionChoice = [
         b: "answertwo",
         c: "answerthree"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
       question: "Question Three Text",
@@ -152,9 +156,14 @@ nextButton.addEventListener("click", showNextcard);
 startBtn.addEventListener("click", entireQuiz)
 
 var submitButton = document.getElementById('submit');
+
 submitButton.addEventListener("click", function(){
   document.getElementById("form").style.display = "block"
   document.getElementById("quizContainer").style.display = "none"
+  // var score = (numCorrect/questionChoice.length)*100;
+  var scoreContainer = document.getElementById('score');
+  scoreContainer.innerHTML = score.value;
+  console.log(scoreContainer);
 })
 
 
